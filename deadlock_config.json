@@ -1,0 +1,5 @@
+{
+    "max_resources": 5,
+    "processes": ["P1", "P2", "P3"],
+    "resources": ["R1", "R2"]
+}
