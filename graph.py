@@ -32,7 +32,12 @@ class ResourceAllocationGraph:
         return False
 
     def break_cycle(self):
+        """Removes an edge from the first detected cycle to resolve deadlock"""
+        if not self.detect_cycle():
+            return
+
         print("Breaking cycle by removing an edge...")
-        if self.graph:
-            node = list(self.graph.keys())[0]
-            del self.graph[node]
+        for node in list(self.graph.keys()):
+            if self.graph[node]:
+                self.graph[node].pop()  # Remove one dependency to break cycle
+                break
